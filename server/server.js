@@ -25,15 +25,10 @@ io.on('connection', socket => {
 // Create peer server
 ExpressPeerServer(http, { path: '/' })
 
-
 // Routes
 app.use('/api', require('./routes/authRouter'))
 app.use('/api', require('./routes/userRouter'))
-// app.use('/api', require('./routes/postRouter'))
-// app.use('/api', require('./routes/commentRouter'))
-// app.use('/api', require('./routes/notifyRouter'))
 app.use('/api', require('./routes/messageRouter'))
-
 
 const URI = process.env.MONGODB_URL
 mongoose.connect(URI, {
@@ -52,7 +47,6 @@ if(process.env.NODE_ENV === 'production'){
         res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
     })
 }
-
 
 const port = process.env.PORT || 5000
 http.listen(port, () => {
