@@ -10,16 +10,12 @@ import { MESS_TYPES, getConversations } from '../../redux/actions/messageAction'
 const LeftSide = () => {
     const { auth, message, online } = useSelector(state => state)
     const dispatch = useDispatch()
-
     const [search, setSearch] = useState('')
     const [searchUsers, setSearchUsers] = useState([])
-
     const history = useHistory()
     const { id } = useParams()
-
     const pageEnd = useRef()
     const [page, setPage] = useState(0)
-
     
     const handleSearch = async e => {
         e.preventDefault()
@@ -71,14 +67,6 @@ const LeftSide = () => {
             dispatch(getConversations({auth, page}))
         }
     },[message.resultUsers, page, auth, dispatch])
-    
-
-    // Check User Online - Offline
-    useEffect(() => {
-        if(message.firstLoad) {
-            dispatch({type: MESS_TYPES.CHECK_ONLINE_OFFLINE, payload: online})
-        }
-    },[online, message.firstLoad, dispatch])
 
     return (
         <>
@@ -110,23 +98,14 @@ const LeftSide = () => {
                                 <div key={user._id} className={`message_user ${isActive(user)}`}
                                 onClick={() => handleAddUser(user)}>
                                     <UserCard user={user} msg={true}>
-                                        {
-                                            user.online
-                                            ? <i className="fas fa-circle text-success" />
-                                            : auth.user.following.find(item => 
-                                                item._id === user._id
-                                            ) && <i className="fas fa-circle" />
-                                                
-                                        }
-                                        
                                     </UserCard>
                                 </div>
                             ))
                         }
                     </>
                 }
-               
-               <button ref={pageEnd} style={{opacity: 0}} >Load More</button>
+                
+                <button ref={pageEnd} style={{opacity: 0}} >Load More</button>
             </div>
         </>
     )

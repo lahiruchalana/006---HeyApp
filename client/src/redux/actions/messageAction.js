@@ -12,8 +12,6 @@ export const MESS_TYPES = {
     CHECK_ONLINE_OFFLINE: 'CHECK_ONLINE_OFFLINE'
 }
 
-
-
 export const addMessage = ({msg, auth, socket}) => async (dispatch) =>{
     dispatch({type: MESS_TYPES.ADD_MESSAGE, payload: msg})
 

@@ -8,9 +8,7 @@ const Login = () => {
     const initialState = { email: '', password: '' }
     const [userData, setUserData] = useState(initialState)
     const { email, password } = userData
-
     const [typePass, setTypePass] = useState(false)
-
     const { auth } = useSelector(state => state)
     const dispatch = useDispatch()
     const history = useHistory()
@@ -32,7 +30,7 @@ const Login = () => {
     return (
         <div className="auth_page">
             <form onSubmit={handleSubmit}>
-                <h3 className="text-uppercase text-center mb-4">V-Network</h3>
+                <h3 className="text-uppercase text-center mb-4">HeyApp</h3>
 
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Email address</label>
@@ -40,7 +38,7 @@ const Login = () => {
                     aria-describedby="emailHelp" onChange={handleChangeInput} value={email} />
                     
                     <small id="emailHelp" className="form-text text-muted">
-                        We'll never share your email with anyone else.
+                        enter your valid email.
                     </small>
                 </div>
 
@@ -66,7 +64,7 @@ const Login = () => {
                 </button>
 
                 <p className="my-2">
-                    You don't have an account? <Link to="/register" style={{color: "crimson"}}>Register Now</Link>
+                    You have not an account? <Link to="/register" style={{color: "crimson"}}>Register Now</Link>
                 </p>
             </form>
         </div>

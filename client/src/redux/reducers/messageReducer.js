@@ -53,11 +53,6 @@ const messageReducer = (state = initialState, action) => {
                 ...state,
                 data: [...state.data, action.payload]
             };
-        case MESS_TYPES.UPDATE_MESSAGES:
-            return {
-                ...state,
-                data: EditData(state.data, action.payload._id, action.payload)
-            };
         case MESS_TYPES.DELETE_MESSAGES:
             return {
                 ...state,
@@ -72,15 +67,6 @@ const messageReducer = (state = initialState, action) => {
                 ...state,
                 users: DeleteData(state.users, action.payload),
                 data: DeleteData(state.data, action.payload)
-            };
-        case MESS_TYPES.CHECK_ONLINE_OFFLINE:
-            return {
-                ...state,
-                users: state.users.map(user => 
-                    action.payload.includes(user._id)
-                    ? {...user, online: true}
-                    : {...user, online: false}
-                )
             };
         default:
             return state;

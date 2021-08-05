@@ -14,7 +14,7 @@ import SocketClient from './SocketClient'
 import Peer from 'peerjs'
 
 function App() {
-  const { auth, status, modal, call } = useSelector(state => state)
+  const { auth, status, modal } = useSelector(state => state)
   const dispatch = useDispatch()
 
   useEffect(() => {

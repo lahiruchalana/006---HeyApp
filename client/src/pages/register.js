@@ -7,13 +7,11 @@ const Register = () => {
     const { auth, alert } = useSelector(state => state)
     const dispatch = useDispatch()
     const history = useHistory()
-
     const initialState = { 
         fullname: '', username: '', email: '', password: '', cf_password: '', gender: 'male'
     }
     const [userData, setUserData] = useState(initialState)
     const { fullname, username, email, password, cf_password } = userData
-
     const [typePass, setTypePass] = useState(false)
     const [typeCfPass, setTypeCfPass] = useState(false)
 
@@ -21,7 +19,6 @@ const Register = () => {
         if(auth.token) history.push("/message")
     }, [auth.token, history])
 
-    
     const handleChangeInput = e => {
         const { name, value } = e.target
         setUserData({...userData, [name]:value})
@@ -35,7 +32,7 @@ const Register = () => {
     return (
         <div className="auth_page">
             <form onSubmit={handleSubmit}>
-                <h3 className="text-uppercase text-center mb-4">V-Network</h3>
+                <h3 className="text-uppercase text-center mb-4">HeyApp</h3>
 
                 <div className="form-group">
                     <label htmlFor="fullname">Full Name</label>

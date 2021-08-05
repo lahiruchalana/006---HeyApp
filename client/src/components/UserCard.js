@@ -26,7 +26,7 @@ const UserCard = ({children, user, border, handleClose, setShowFollowers, setSho
                     </div>
                 }
 
-                {
+                {/* {
                     user.call &&
                     <span className="material-icons">
                         {
@@ -35,7 +35,7 @@ const UserCard = ({children, user, border, handleClose, setShowFollowers, setSho
                             : user.call.video ? 'video_camera_front' : 'call'
                         }
                     </span>
-                }
+                } */}
             </>
         )
     }
